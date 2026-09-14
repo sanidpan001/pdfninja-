@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merge PDF Online Free - Fast & Secure | PDFNinja</title>
+<meta name="description" content="Merge multiple PDF files into one PDF online for free. 100% private, files never leave your device. Fast, no watermark.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>body{font-family:'Plus Jakarta Sans',sans-serif}</style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900">
+
+<header class="bg-white border-b sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center font-bold text-sm">P</div>
+      <span class="font-bold text-lg tracking-tight">PDFNinja</span>
+    </a>
+    <div class="flex items-center gap-5">
+      <a href="/" class="text-sm font-semibold text-slate-900 hover:text-black">Home</a>
+      <a href="/" class="text-sm font-semibold text-slate-500 hover:text-black">All Tools →</a>
+    </div>
+  </div>
+</header>
+
+<!-- AD SLOT - TOP -->
+<div class="max-w-6xl mx-auto px-4 md:px-6 mt-6">
+  <div id="ad-top" class="w-full h-[90px] md:h-[120px] bg-slate-100 border-2 border-dashed border-slate-200 rounded-2xl flex items-center justify-center text-slate-400 text-xs md:text-sm">
+    TOP AD BANNER - 728x90 / 320x100 Mobile Responsive
+    <!-- Paste ad code here -->
+  </div>
+</div>
+
+<main class="max-w-4xl mx-auto px-4 md:px-6">
+  <div class="text-center mt-10 mb-8">
+    <div class="inline-flex items-center gap-2 bg-white border rounded-full px-4 py-1.5 mb-4 shadow-sm">
+      <div class="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-[10px] font-bold">P</div>
+      <span class="text-xs font-bold tracking-wide">PDFNINJA • 100% FREE TOOL</span>
+    </div>
+    <h1 class="text-3xl md:text-5xl font-bold tracking-tight">Merge PDF Files Online</h1>
+    <p class="mt-3 text-slate-500 max-w-xl mx-auto text-[15px]">Combine multiple PDFs into one document in seconds. Secure, fast and completely free. No upload to server.</p>
+    <div class="mt-5 flex flex-wrap justify-center gap-2">
+      <span class="px-3.5 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold">✓ No Sign-in</span>
+      <span class="px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold">✓ No Watermark</span>
+      <span class="px-3.5 py-1.5 rounded-full bg-violet-50 border border-violet-200 text-violet-700 text-xs font-bold">✓ No Subscription</span>
+    </div>
+  </div>
+
+  <div id="dropZone" class="bg-white border-2 border-dashed border-slate-200 rounded-[24px] p-8 md:p-12 text-center cursor-pointer hover:border-black transition group">
+    <input type="file" id="fileInput" multiple accept=".pdf" class="hidden">
+    <div class="w-14 h-14 mx-auto rounded-2xl bg-black text-white flex items-center justify-center mb-4 group-hover:scale-105 transition">↑</div>
+    <h3 class="font-bold text-lg">Drop PDFs here or Click to Browse</h3>
+    <p class="text-sm text-slate-500 mt-1">Select 2 or more PDF files</p>
+  </div>
+
+  <div id="fileListWrap" class="mt-6 hidden">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="font-bold text-sm"><span id="fileCount">0</span> files • Drag to reorder</h3>
+      <button id="clearBtn" class="text-sm text-red-500 font-semibold">Clear All</button>
+    </div>
+    <div id="fileList" class="space-y-2"></div>
+    <div class="mt-6 grid md:grid-cols-[1fr_160px] gap-3">
+      <button id="mergeBtn" class="bg-black text-white rounded-full py-4 font-bold hover:bg-zinc-800 transition disabled:opacity-50">Merge & Download PDF</button>
+      <button id="addMoreBtn" class="rounded-full py-4 font-bold border bg-white hover:bg-slate-50 transition">+ Add More</button>
+    </div>
+    <p id="status" class="text-center text-sm text-slate-500 mt-3"></p>
+  </div>
+
+  <!-- AD SLOT - MIDDLE -->
+  <div class="mt-12">
+    <div id="ad-middle" class="w-full h-[90px] md:h-[120px] bg-slate-100 border-2 border-dashed border-slate-200 rounded-2xl flex items-center justify-center text-slate-400 text-xs md:text-sm">
+      MIDDLE AD BANNER - 728x90 / 320x100
+      <!-- Paste ad code here -->
+    </div>
+  </div>
+
+  <!-- How to Use -->
+  <section class="mt-14 bg-white rounded-[24px] border p-6 md:p-8">
+    <h2 class="text-xl md:text-2xl font-bold mb-6">How to Merge PDF Files?</h2>
+    <div class="grid md:grid-cols-3 gap-6 text-sm">
+      <div><span class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mb-3">1</span><b>Upload PDFs</b><p class="text-slate-500 mt-1">Click or drag & drop your PDF files. You can select unlimited files.</p></div>
+      <div><span class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mb-3">2</span><b>Arrange Order</b><p class="text-slate-500 mt-1">Drag files to change order. First file will be first page of final PDF.</p></div>
+      <div><span class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mb-3">3</span><b>Merge & Download</b><p class="text-slate-500 mt-1">Click Merge button. Your merged PDF will download automatically in 1 second.</p></div>
+    </div>
+  </section>
+
+  <!-- NEW TEXT SECTION - Added between How to and FAQ -->
+  <section class="mt-6 bg-[#f1f5f9] rounded-[24px] border border-slate-200 p-6 md:p-8">
+    <h2 class="text-xl md:text-2xl font-bold mb-4">Why Use PDFNinja to Merge PDFs?</h2>
+    <p class="text-sm text-slate-600 leading-7">
+      Merging PDFs is a common need for students, office workers, and businesses. Whether you are combining scanned documents, merging invoices, joining e-books, or creating a single file from multiple reports, <b>PDFNinja</b> makes it incredibly simple.
+      <br><br>
+      Unlike other online tools that upload your files to a server, our tool works <b>100% offline in your browser</b>. This means your sensitive documents, like Aadhaar, PAN, contracts, or bank statements, never leave your device. It is fast, private, and secure.
+      <br><br>
+      We support all devices - Mobile, Tablet, Laptop. No app installation needed. Just open the website, merge, and download. The final PDF quality remains original with no compression or watermark. It's the best free alternative to Adobe Acrobat for quick PDF merging.
+    </p>
+    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-semibold">
+      <div class="bg-white border rounded-xl p-3 text-center">⚡ Lightning Fast</div>
+      <div class="bg-white border rounded-xl p-3 text-center">🔒 100% Private</div>
+      <div class="bg-white border rounded-xl p-3 text-center">📱 Mobile Friendly</div>
+      <div class="bg-white border rounded-xl p-3 text-center">♾️ Unlimited Use</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mt-6 bg-white rounded-[24px] border p-6 md:p-8">
+    <h2 class="text-xl md:text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+    <div class="space-y-4 text-sm">
+      <details class="group border-b pb-4"><summary class="font-semibold cursor-pointer flex justify-between">Is it safe? Where are my files stored?<span class="group-open:rotate-180 transition">⌄</span></summary><p class="text-slate-500 mt-2">100% safe. Files never leave your device. Everything happens in your browser.</p></details>
+      <details class="group border-b pb-4"><summary class="font-semibold cursor-pointer flex justify-between">Is there any file size limit?<span class="group-open:rotate-180 transition">⌄</span></summary><p class="text-slate-500 mt-2">No server limit. Merge as many as your browser can handle.</p></details>
+      <details class="group border-b pb-4"><summary class="font-semibold cursor-pointer flex justify-between">Will quality be reduced?<span class="group-open:rotate-180 transition">⌄</span></summary><p class="text-slate-500 mt-2">No. Original quality is preserved exactly.</p></details>
+      <details class="group"><summary class="font-semibold cursor-pointer flex justify-between">Is it free? Is there watermark?<span class="group-open:rotate-180 transition">⌄</span></summary><p class="text-slate-500 mt-2">Yes, 100% free forever. No watermark, no signup.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="mt-16 border-t bg-white">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 py-10">
+    <div class="grid md:grid-cols-4 gap-8 text-sm">
+      <div>
+        <div class="flex items-center gap-2 font-bold mb-3"><div class="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center text-xs">P</div>PDFNinja</div>
+        <p class="text-slate-500 leading-relaxed">Free browser-based tools for PDF, Image, Text & Daily utilities. No data is ever uploaded.</p>
+      </div>
+      <div><h4 class="font-bold mb-3">Popular Tools</h4><ul class="space-y-2 text-slate-500"><li>Merge PDF</li><li>JPG to PDF</li><li>Compress PDF</li><li>Image Compressor</li></ul></div>
+      <div><h4 class="font-bold mb-3">Company</h4><ul class="space-y-2 text-slate-500"><li><a href="#">About Us</a></li><li><a href="#">Contact Us</a></li></ul></div>
+      <div><h4 class="font-bold mb-3">Legal</h4><ul class="space-y-2 text-slate-500"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+    </div>
+    <div class="mt-10 pt-6 border-t flex justify-between text-xs text-slate-400">
+      <p>© 2026 PDFNinja - All Rights Reserved.</p>
+      <p>merge.pdfninja.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const dropZone=document.getElementById('dropZone'), fileInput=document.getElementById('fileInput'), fileList=document.getElementById('fileList'), fileListWrap=document.getElementById('fileListWrap'), fileCount=document.getElementById('fileCount'), mergeBtn=document.getElementById('mergeBtn'), clearBtn=document.getElementById('clearBtn'), addMoreBtn=document.getElementById('addMoreBtn'), statusEl=document.getElementById('status');
+let files=[];
+function render(){fileList.innerHTML='';files.forEach((f,i)=>{const d=document.createElement('div');d.className='flex items-center gap-3 p-3 bg-white border rounded-xl';d.innerHTML=`<span class="cursor-grab text-slate-300">☰</span><div class="w-8 h-10 bg-red-50 text-red-600 rounded flex items-center justify-center text-[10px] font-bold">PDF</div><div class="flex-1 truncate text-sm"><b class="truncate block">${f.name}</b><span class="text-xs text-slate-500">${(f.size/1024/1024).toFixed(2)} MB</span></div><button class="remove text-slate-400 hover:text-red-500">✕</button>`;d.querySelector('.remove').onclick=()=>{files.splice(i,1);render()};fileList.appendChild(d)});fileCount.textContent=files.length;fileListWrap.classList.toggle('hidden',files.length==0);mergeBtn.disabled=files.length<2;statusEl.textContent=files.length<2?'Add at least 2 PDFs':'Ready to merge';}
+async function handle(newFiles){for(let file of newFiles){if(file.type!=='application/pdf')continue;files.push({name:file.name,size:file.size,buffer:await file.arrayBuffer()})}render()}
+dropZone.onclick=()=>fileInput.click();addMoreBtn.onclick=()=>fileInput.click();fileInput.onchange=e=>handle(e.target.files);['dragenter','dragover'].forEach(ev=>dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.add('border-black')}));['dragleave','drop'].forEach(ev=>dropZone.addEventListener(ev,e=>{e.preventDefault();dropZone.classList.remove('border-black')}));dropZone.addEventListener('drop',e=>handle(e.dataTransfer.files));clearBtn.onclick=()=>{files=[];render()};new Sortable(fileList,{animation:150,handle:'.cursor-grab',onEnd:e=>{const item=files.splice(e.oldIndex,1)[0];files.splice(e.newIndex,0,item);render()}});mergeBtn.onclick=async()=>{mergeBtn.textContent='Merging...';mergeBtn.disabled=true;try{const merged=await PDFLib.PDFDocument.create();for(let f of files){const pdf=await PDFLib.PDFDocument.load(f.buffer);const pages=await merged.copyPages(pdf,pdf.getPageIndices());pages.forEach(p=>merged.addPage(p))}const bytes=await merged.save();const blob=new Blob([bytes],{type:'application/pdf'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`merged-${Date.now()}.pdf`;a.click();URL.revokeObjectURL(url);statusEl.textContent='✅ Downloaded!';}catch(err){statusEl.textContent='Error: '+err.message}mergeBtn.textContent='Merge & Download PDF';mergeBtn.disabled=false};
+</script>
+</body>
+</html>
